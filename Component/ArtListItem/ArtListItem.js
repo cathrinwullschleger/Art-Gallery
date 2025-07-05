@@ -1,8 +1,18 @@
 import Image from "next/image";
+import styled from "styled-components";
 
+const ListItem = styled.li`
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  p {
+    padding-top: 1.25rem;
+  }
+`;
 export default function ArtListItem({ artPiece }) {
   return (
-    <li>
+    <ListItem>
       <Image
         src={artPiece.imageSource}
         alt={artPiece.name}
@@ -13,6 +23,6 @@ export default function ArtListItem({ artPiece }) {
       <p>
         &quot;{artPiece.name}&quot; by {artPiece.artist}
       </p>
-    </li>
+    </ListItem>
   );
 }
