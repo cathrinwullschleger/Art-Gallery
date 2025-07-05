@@ -16,7 +16,7 @@ export default function RandomArtItem({ artPieces }) {
           height={200}
           style={{ objectFit: "cover" }}
         />
-        <p>{randomArtPiece.artist}</p>
+        <p>{artPieces && <RandomArtItem artPieces={artPieces} />}</p>
       </ArtPiece>
     </Container>
   );
