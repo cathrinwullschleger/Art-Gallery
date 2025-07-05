@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Navigation from "../Navigation/Navigation.js";
 
 const Wrapper = styled.div`
-  padding-bottom: 6rem; /* passt zur Höhe der fixen Navigation */
+  padding-bottom: 6rem;
   min-height: 100vh;
   background-color: white;
 `;
@@ -11,9 +11,9 @@ const BottomGap = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 6rem; /* gleiche Höhe wie Navigation */
+  height: 6rem;
   background-color: white;
-  z-index: 999; /* unter Navigation (1000) */
+  z-index: 999;
 `;
 
 export default function Layout({ children }) {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArtPiece } from "@/styles.js";
 
 export default function RandomArtItem({ artPieces }) {
   const length = artPieces.length;
@@ -7,7 +8,7 @@ export default function RandomArtItem({ artPieces }) {
 
   return (
     // if time left -> styled component
-    <>
+    <ArtPiece>
       <Image
         src={randomArtPiece.imageSource}
         alt={randomArtPiece.name}
@@ -16,6 +17,6 @@ export default function RandomArtItem({ artPieces }) {
         style={{ objectFit: "cover" }}
       />
       <p>{randomArtPiece.artist}</p>
-    </>
+    </ArtPiece>
   );
 }
