@@ -1,6 +1,5 @@
 import useSWR from "swr";
-import ArtList from "@/Component/ArtList/ArtList.js";
-
+import ArtPieceDetails from "@/Component/ArtPieceDetail/ArtPieceDetails.js";
 const URL = "https://example-apis.vercel.app/api/art";
 
 const fetcher = async (url) => {
@@ -15,20 +14,19 @@ const fetcher = async (url) => {
   return res.json();
 };
 
-export default function ArtPiecesPage() {
+export default function ArtPieceSlug() {
   const { data: artPieces, error, isLoading } = useSWR(URL, fetcher);
 
   return (
     <div>
-      <h1>Art Gallery</h1>
-      {isLoading && <p>Loading gallery ... please wait a moment</p>}
+      {isLoading && <p>Loading artwork details ... please wait a moment</p>}
       {error && (
         <p>
-          Something went wrong while loading the gallery. Try refreshing the
-          page.
+          Something went wrong while loading the artwork details. Try refreshing
+          the page.
         </p>
       )}
-      {artPieces && <ArtList artPieces={artPieces} />};
+      {artPieces && <ArtPieceDetails artPieces={artPieces} />};
     </div>
   );
 }
