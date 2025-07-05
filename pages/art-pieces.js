@@ -18,13 +18,17 @@ const fetcher = async (url) => {
 export default function ArtPiecesPage() {
   const { data: artPieces, error, isLoading } = useSWR(URL, fetcher);
 
-  if (isLoading) return <p>Loading gallery ... please wait a moment</p>;
-  if (error)
-    return (
-      <p>
-        Something went wrong while loading the gallery. Try refreshing the page.
-      </p>
-    );
-
-  return <ArtList artPieces={artPieces} />;
+  return (
+    <div>
+      <h1>Art Gallery</h1>
+      {isLoading && <p>Loading gallery ... please wait a moment</p>}
+      {error && (
+        <p>
+          Something went wrong while loading the gallery. Try refreshing the
+          page.
+        </p>
+      )}
+      {artPieces && <ArtList artPieces={artPieces} />};{" "}
+    </div>
+  );
 }
