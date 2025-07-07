@@ -90,6 +90,7 @@ export const NavListItem = styled.li`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1.25rem;
+  color: black;
   &:hover {
     color: #551a8b;
     font-size: 1.5rem;
