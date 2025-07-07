@@ -3,22 +3,13 @@ import Image from "next/image";
 import { ArtPiece } from "@/styles.js";
 import { Container } from "@/styles.js";
 
-export default function ArtPieceDetail({ artPieces }) {
+export default function ArtPieceDetail({ piece }) {
   const router = useRouter();
-  console.log("router: ", router);
-  const { slug } = router.query;
-
-  const piece = artPieces.find((piece) => piece.slug === slug);
-
-  if (!piece) {
-    return null;
-  }
+  const { artist, name, imageSource, year, genre } = piece;
 
   const handleBack = () => {
     router.push("/art-pieces");
   };
-
-  const { artist, name, imageSource, year, genre } = piece;
 
   return (
     <Container>

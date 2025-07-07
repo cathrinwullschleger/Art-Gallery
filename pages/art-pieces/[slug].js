@@ -1,32 +1,33 @@
-import useSWR from "swr";
 import ArtPieceDetails from "@/Component/ArtPieceDetail/ArtPieceDetails.js";
-const URL = "https://example-apis.vercel.app/api/art";
+import { useRouter } from "next/router";
 
-const fetcher = async (url) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    const error = new Error("An error occurred while fetching the data.");
-    error.info = await res.json();
-    error.status = res.status;
-    throw error;
+export default function ArtPieceSlug({ artPieces, isLoading, error }) {
+  const router = useRouter();
+  console.log("router: ", router);
+  const { slug } = router.query;
+
+  if (isLoading || !slug) {
+    return <p>Loading artwork details ... please wait a moment</p>;
   }
 
-  return res.json();
-};
+  if (error) {
+    return (
+      <p>
+        Something went wrong while loading the artwork details. Try refreshing
+        the page.
+      </p>
+    );
+  }
 
-export default function ArtPieceSlug() {
-  const { data: artPieces, error, isLoading } = useSWR(URL, fetcher);
+  const piece = artPieces.find((piece) => piece.slug === slug);
 
-  return (
-    <div>
-      {isLoading && <p>Loading artwork details ... please wait a moment</p>}
-      {error && (
-        <p>
-          Something went wrong while loading the artwork details. Try refreshing
-          the page.
-        </p>
-      )}
-      {artPieces && <ArtPieceDetails artPieces={artPieces} />};
-    </div>
-  );
+  if (!piece) {
+    return <p>Art piece not found</p>;
+  }
+
+  const handleBack = () => {
+    router.push("/art-pieces");
+  };
+
+  return <ArtPieceDetails piece={piece} />;
 }
