@@ -9,7 +9,7 @@ export default function RandomArtItem({ artPiece, onToggle, isLiked }) {
     <Container>
       <ArtPiece>
         <FavoriteLabel isLiked={isLiked}>
-          {isLiked && <p> Favorite Art Piece</p>}{" "}
+          {isLiked && <p>Favorite Art Piece ♥</p>}{" "}
         </FavoriteLabel>
         <Image
           src={artPiece.imageSource}
@@ -18,7 +18,6 @@ export default function RandomArtItem({ artPiece, onToggle, isLiked }) {
           height={200}
           style={{ objectFit: "cover" }}
         />
-
         <FavoriteButton isLiked={isLiked} onToggle={onToggle} />
         <p>{artPiece.name} </p>
       </ArtPiece>

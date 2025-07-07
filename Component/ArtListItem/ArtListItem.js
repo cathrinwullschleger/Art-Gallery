@@ -8,7 +8,7 @@ export default function ArtListItem({ artPiece, toggleLike, isLiked }) {
   return (
     <ArtPiece>
       <FavoriteLabel isLiked={isLiked}>
-        {isLiked && <p> Favorite Art Piece</p>}
+        {isLiked && <p>Favorite Art Piece ♥</p>}
       </FavoriteLabel>
       <Link href={`/art-pieces/${artPiece.slug}`}>
         <Image

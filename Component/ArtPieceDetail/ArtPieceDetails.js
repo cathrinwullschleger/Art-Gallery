@@ -20,7 +20,7 @@ export default function ArtPieceDetail({ piece, onToggle, isLiked }) {
         <h2>{name}</h2>
         <FavoriteLabel isLiked={isLiked}>
           {" "}
-          {isLiked && <p> Favorite Art Piece</p>}
+          {isLiked && <p>Favorite Art Piece ♥</p>}
         </FavoriteLabel>
         <Image
           src={imageSource}
@@ -29,7 +29,6 @@ export default function ArtPieceDetail({ piece, onToggle, isLiked }) {
           height={200}
           style={{ objectFit: "cover" }}
         />
-
         <FavoriteButton isLiked={isLiked} onToggle={onToggle} slug={slug} />
         <p>
           Artist: {artist} <br />
