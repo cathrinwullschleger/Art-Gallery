@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import { Raleway } from "next/font/google";
+import { Raleway, Montserrat } from "next/font/google";
 import styled from "styled-components";
 const raleway = Raleway({ weight: "300", subsets: ["latin"] });
+const montserrat = Montserrat({ weight: "300", subsets: ["latin"] });
 import Link from "next/link";
 
 export default createGlobalStyle`
@@ -16,14 +17,16 @@ export default createGlobalStyle`
     font-family: ${raleway.style.fontFamily};
   }
   h1 {
+    font-family: ${montserrat.style.fontFamily};
     font-size: 5rem;
- padding-top: 5rem;
+    padding-top: 5rem;
     margin: 0;
-   text-align: center;
+    text-align: center;
   }
  p {
     padding-top: 1.25rem;
     font-size: 1.25rem;
+    
   }
 `;
 
@@ -35,8 +38,7 @@ export const Container = styled.div`
 `;
 export const ArtPiece = styled.li`
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: 2rem;
   line-height: 1.5;
   list-style: none;
 
@@ -48,22 +50,21 @@ export const ArtPiece = styled.li`
     padding-top: 1.25rem;
     font-size: 1.25rem;
   }
-
-  button {
-    color: #551a8b;
-    border: 1px solid black;
-    margin-top: 1.5rem;
-    padding: 0.75rem;
-    background-color: white;
-    font-family: ${raleway.style.fontFamily};
-    font-size: 1.25rem;
-    &:hover {
-      font-size: 1.5rem;
-      border: 1px solid #551a8b;
-    }
-  }
 `;
 
+export const StyledButton = styled.button`
+  color: #551a8b;
+  border: 1px solid black;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background-color: white;
+  font-family: ${raleway.style.fontFamily};
+  font-size: 1.25rem;
+  &:hover {
+    font-size: 1.5rem;
+    border: 1px solid #551a8b;
+  }
+`;
 export const NavList = styled.ul`
   background-color: white;
   border: 1px solid;
@@ -74,7 +75,7 @@ export const NavList = styled.ul`
   display: flex;
   justify-content: center;
   gap: 4rem;
-  position: fixed;
+  position: fixed !important;
   bottom: 0;
   left: 0;
   right: 0;
@@ -84,7 +85,6 @@ export const NavListItem = styled.li`
   display: grid;
   place-items: center;
   padding: 1rem;
-  flex-grow: 1;
   list-style: none;
 `;
 export const StyledLink = styled(Link)`
@@ -94,4 +94,25 @@ export const StyledLink = styled(Link)`
     color: #551a8b;
     font-size: 1.5rem;
   }
+`;
+
+export const ArtPiecesList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 1rem;
+  margin: 0.5rem;
+`;
+export const ImageWrapper = styled.div`
+  box-shadow: ${(props) => (props.isLiked ? "0 0 15px #551a8b" : "none")};
+
+  padding: 2rem;
+`;
+
+export const HeartButton = styled.button`
+  margin-top: 1rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
 `;

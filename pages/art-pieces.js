@@ -1,6 +1,12 @@
 import ArtList from "@/Component/ArtList/ArtList.js";
 
-export default function ArtPiecesPage({ artPieces, isLoading, error }) {
+export default function ArtPiecesPage({
+  artPieces,
+  isLoading,
+  error,
+  likedPieces,
+  toggleLike,
+}) {
   if (isLoading) {
     return <p>Loading gallery ... please wait a moment</p>;
   }
@@ -19,7 +25,14 @@ export default function ArtPiecesPage({ artPieces, isLoading, error }) {
   return (
     <div>
       <h1>Art Gallery</h1>
-      {artPieces && <ArtList artPieces={artPieces} />};
+      {artPieces && (
+        <ArtList
+          likedPieces={likedPieces}
+          toggleLike={toggleLike}
+          artPieces={artPieces}
+        />
+      )}
+      ;
     </div>
   );
 }

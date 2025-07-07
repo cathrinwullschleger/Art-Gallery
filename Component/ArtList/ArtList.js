@@ -1,23 +1,18 @@
-import styled from "styled-components";
 import ArtListItem from "../ArtListItem/ArtListItem.js";
+import { ArtPiecesList } from "@/styles.js";
 
-const List = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  list-style: none;
-  padding: 1rem;
-  margin: 0.5rem;
-`;
-
-export default function ArtList({ artPieces }) {
+export default function ArtList({ artPieces, toggleLike, likedPieces = [] }) {
+  // likedPieces = [] no error because there is an Array
   return (
-    // if time left -> styled component
-    <List>
-      {" "}
+    <ArtPiecesList>
       {artPieces.map((artPiece) => (
-        <ArtListItem key={artPiece.id} artPiece={artPiece} />
+        <ArtListItem
+          key={artPiece.id}
+          artPiece={artPiece}
+          isLiked={likedPieces.includes(artPiece.slug)} // isLiked?
+          toggleLike={toggleLike}
+        />
       ))}
-    </List>
+    </ArtPiecesList>
   );
 }
