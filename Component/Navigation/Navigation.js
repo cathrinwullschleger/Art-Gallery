@@ -5,13 +5,13 @@ import { StyledLink } from "@/styles.js";
 export default function Navigation() {
   return (
     <NavList>
-      <li>
+      <NavListItem>
         <StyledLink href="/">Spotlight</StyledLink>
-      </li>
+      </NavListItem>
 
-      <li>
+      <NavListItem>
         <StyledLink href="/art-pieces">Art Pieces</StyledLink>
-      </li>
+      </NavListItem>
     </NavList>
   );
 }

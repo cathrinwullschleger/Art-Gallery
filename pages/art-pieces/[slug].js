@@ -1,7 +1,13 @@
 import ArtPieceDetails from "@/Component/ArtPieceDetail/ArtPieceDetails.js";
 import { useRouter } from "next/router";
 
-export default function ArtPieceSlug({ artPieces, isLoading, error }) {
+export default function ArtPieceSlug({
+  artPieces,
+  isLoading,
+  error,
+  likedPieces,
+  toggleLike,
+}) {
   const router = useRouter();
   console.log("router: ", router);
   const { slug } = router.query;
@@ -29,5 +35,11 @@ export default function ArtPieceSlug({ artPieces, isLoading, error }) {
     router.push("/art-pieces");
   };
 
-  return <ArtPieceDetails piece={piece} />;
+  return (
+    <ArtPieceDetails
+      piece={piece}
+      isLiked={likedPieces.includes(piece.slug)} // isLiked?
+      onToggle={() => toggleLike(piece.slug)}
+    />
+  );
 }
