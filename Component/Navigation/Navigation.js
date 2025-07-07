@@ -8,9 +8,11 @@ export default function Navigation() {
       <NavListItem>
         <StyledLink href="/">Spotlight</StyledLink>
       </NavListItem>
-
       <NavListItem>
         <StyledLink href="/art-pieces">Art Pieces</StyledLink>
+      </NavListItem>
+      <NavListItem>
+        <StyledLink href="/favorites">Favorites</StyledLink>
       </NavListItem>
     </NavList>
   );
