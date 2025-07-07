@@ -9,10 +9,13 @@ export default function FavoritesPage({
   );
 
   return (
-    <ArtList
-      artPieces={favoriteArtPieces}
-      toggleLike={toggleLike}
-      likedPieces={likedPieces}
-    />
+    <div>
+      <h1>Art Gallery</h1>
+      <ArtList
+        artPieces={favoriteArtPieces}
+        toggleLike={toggleLike}
+        likedPieces={likedPieces}
+      />
+    </div>
   );
 }

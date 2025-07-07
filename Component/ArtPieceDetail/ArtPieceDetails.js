@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArtPiece } from "@/styles.js";
 import { Container } from "@/styles.js";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import { ImageWrapper } from "@/styles.js";
+import { FavoriteLabel } from "@/styles.js";
 import { StyledButton } from "@/styles.js";
 
 export default function ArtPieceDetail({ piece, onToggle, isLiked }) {
@@ -18,19 +18,22 @@ export default function ArtPieceDetail({ piece, onToggle, isLiked }) {
     <Container>
       <ArtPiece>
         <h2>{name}</h2>
-        <ImageWrapper isLiked={isLiked}>
-          <Image
-            src={imageSource}
-            alt={name}
-            width={300}
-            height={200}
-            style={{ objectFit: "cover" }}
-          />
-        </ImageWrapper>
+        <FavoriteLabel isLiked={isLiked}>
+          {" "}
+          {isLiked && <p> Favorite Art Piece</p>}
+        </FavoriteLabel>
+        <Image
+          src={imageSource}
+          alt={name}
+          width={300}
+          height={200}
+          style={{ objectFit: "cover" }}
+        />
+
         <FavoriteButton isLiked={isLiked} onToggle={onToggle} slug={slug} />
         <p>
           Artist: {artist} <br />
-          Year:{year} <br />
+          Year: {year} <br />
           <strong>Genre:</strong> {genre}
         </p>
         <StyledButton type="button" onClick={handleBack}>

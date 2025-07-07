@@ -38,6 +38,9 @@ export const Container = styled.div`
 `;
 export const ArtPiece = styled.li`
   text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
   line-height: 1.5;
   list-style: none;
@@ -53,7 +56,6 @@ export const ArtPiece = styled.li`
 `;
 
 export const StyledButton = styled.button`
-  color: #551a8b;
   border: 1px solid black;
   margin-top: 1.5rem;
   padding: 0.75rem;
@@ -62,7 +64,6 @@ export const StyledButton = styled.button`
   font-size: 1.25rem;
   &:hover {
     font-size: 1.5rem;
-    border: 1px solid #551a8b;
   }
 `;
 export const NavList = styled.ul`
@@ -89,10 +90,9 @@ export const NavListItem = styled.li`
 `;
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: ${(props) => (props.isActive ? "1.5rem" : "1.25rem")};
   color: black;
   &:hover {
-    color: #551a8b;
     font-size: 1.5rem;
   }
 `;
@@ -105,10 +105,13 @@ export const ArtPiecesList = styled.ul`
   padding: 1rem;
   margin: 0.5rem;
 `;
-export const ImageWrapper = styled.div`
-  box-shadow: ${(props) => (props.isLiked ? "0 0 15px #551a8b" : "none")};
+export const FavoriteLabel = styled.div`
+  text-align: center;
+  padding: 1rem;
 
-  padding: 2rem;
+  p {
+    font-size: 1rem;
+  }
 `;
 
 export const HeartButton = styled.button`
