@@ -7,6 +7,8 @@ export default function ArtPieceSlug({
   error,
   likedPieces,
   toggleLike,
+  handleAddComment,
+  comments,
 }) {
   const router = useRouter();
   console.log("router: ", router);
@@ -40,6 +42,8 @@ export default function ArtPieceSlug({
       piece={piece}
       isLiked={likedPieces.includes(piece.slug)} // isLiked?
       onToggle={() => toggleLike(piece.slug)}
+      onAddComment={handleAddComment}
+      comments={comments}
     />
   );
 }

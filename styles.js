@@ -134,3 +134,24 @@ export const HeartButton = styled.button`
   background: none;
   border: none;
 `;
+
+export const FormContainer = styled.form`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+
+  input {
+    width: 200px;
+    height: 40px;
+  }
+
+  button {
+    border: 1px solid black;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background-color: white;
+    font-family: ${raleway.style.fontFamily};
+    font-size: 1.25rem;
+  }
+`;
