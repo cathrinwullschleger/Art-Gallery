@@ -63,24 +63,30 @@ export const StyledButton = styled.button`
   font-family: ${raleway.style.fontFamily};
   font-size: 1.25rem;
   &:hover {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 `;
 export const NavList = styled.ul`
   background-color: white;
   border: 1px solid;
   list-style: none;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
   display: flex;
   justify-content: center;
-  gap: 4rem;
   position: fixed !important;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+
+  @media (min-width: 600px) {
+    gap: 2rem;
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 `;
 export const NavListItem = styled.li`
   display: grid;
@@ -90,10 +96,18 @@ export const NavListItem = styled.li`
 `;
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  font-size: ${(props) => (props.isActive ? "1.5rem" : "1.25rem")};
+  font-size: ${(props) => (props.$isActive ? "1.25rem" : "0.75rem")};
   color: black;
   &:hover {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 600px) {
+    font-size: ${(props) => (props.$isActive ? "2rem" : "1.25rem")};
+
+    &:hover {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -110,7 +124,7 @@ export const FavoriteLabel = styled.div`
   padding: 1rem;
 
   p {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 `;
 

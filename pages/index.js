@@ -10,7 +10,7 @@ export default function HomePage({
 }) {
   const [randomIndex, setRandomIndex] = useState(null); // store the randomly seltected index once component loads
 
-  // Run this effect only once to generate and save a random index
+  // run this effect only once to generate and save a random index
   useEffect(() => {
     if (artPieces && artPieces.length > 0 && randomIndex === null) {
       //only run if artPieces are loaded and no random index has been set yet

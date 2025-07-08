@@ -7,7 +7,7 @@ import { FavoriteLabel } from "@/styles.js";
 import { StyledButton } from "@/styles.js";
 
 export default function ArtPieceDetail({ piece, onToggle, isLiked }) {
-  const { artist, name, imageSource, year, genre, slug } = piece;
+  const { artist, name, imageSource, year, genre } = piece;
 
   const router = useRouter();
   const handleBack = () => {
@@ -18,10 +18,11 @@ export default function ArtPieceDetail({ piece, onToggle, isLiked }) {
     <Container>
       <ArtPiece>
         <h2>{name}</h2>
-        <FavoriteLabel isLiked={isLiked}>
-          {" "}
-          {isLiked && <p> Favorite Art Piece</p>}
-        </FavoriteLabel>
+        {isLiked && (
+          <FavoriteLabel>
+            <p>Favorite Art Piece ♥</p>
+          </FavoriteLabel>
+        )}
         <Image
           src={imageSource}
           alt={name}
@@ -29,8 +30,7 @@ export default function ArtPieceDetail({ piece, onToggle, isLiked }) {
           height={200}
           style={{ objectFit: "cover" }}
         />
-
-        <FavoriteButton isLiked={isLiked} onToggle={onToggle} slug={slug} />
+        <FavoriteButton isLiked={isLiked} onToggle={onToggle} />
         <p>
           Artist: {artist} <br />
           Year: {year} <br />
