@@ -1,15 +1,16 @@
 import Image from "next/image";
-import { ArtPiece } from "@/styles.js";
+import { ArtPiece, FavoriteLabel } from "@/styles.js";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import { FavoriteLabel } from "@/styles.js";
 
-export default function ArtListItem({ artPiece, toggleLike, isLiked }) {
+export default function ArtListItem({ artPiece, onToggle, isLiked }) {
   return (
     <ArtPiece>
-      <FavoriteLabel isLiked={isLiked}>
-        {isLiked && <p>Favorite Art Piece ♥</p>}
-      </FavoriteLabel>
+      {isLiked && (
+        <FavoriteLabel>
+          <p>Favorite Art Piece ♥</p>
+        </FavoriteLabel>
+      )}
       <Link href={`/art-pieces/${artPiece.slug}`}>
         <Image
           src={artPiece.imageSource}
@@ -19,10 +20,7 @@ export default function ArtListItem({ artPiece, toggleLike, isLiked }) {
           style={{ objectFit: "cover" }}
         />
       </Link>{" "}
-      <FavoriteButton
-        isLiked={isLiked}
-        onToggle={() => toggleLike(artPiece.slug)}
-      />
+      <FavoriteButton isLiked={isLiked} onToggle={onToggle} />
       <p>
         &quot;{artPiece.name}&quot; by {artPiece.artist}
       </p>

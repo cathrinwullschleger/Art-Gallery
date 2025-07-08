@@ -4,13 +4,14 @@ export default function FavoritesPage({
   likedPieces = [],
   toggleLike,
 }) {
-  const favoriteArtPieces = artPieces.filter((artPiece) =>
-    likedPieces.includes(artPiece.slug)
+  const favoriteArtPieces = artPieces.filter(
+    (artPiece) => likedPieces.includes(artPiece.slug) // new array with only favorites (likedPieces)
   );
 
   return (
     <div>
       <h1>Art Gallery</h1>
+
       <ArtList
         artPieces={favoriteArtPieces}
         toggleLike={toggleLike}

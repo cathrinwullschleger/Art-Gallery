@@ -6,14 +6,14 @@ export default function Navigation() {
   return (
     <NavList>
       <NavListItem>
-        <StyledLink href="/" isActive={router.pathname === "/"}>
+        <StyledLink href="/" $isActive={router.pathname === "/"}>
           Spotlight
         </StyledLink>
       </NavListItem>
       <NavListItem>
         <StyledLink
           href="/art-pieces"
-          isActive={router.pathname === "/art-pieces"}
+          $isActive={router.pathname === "/art-pieces"}
         >
           Art Pieces
         </StyledLink>
@@ -21,7 +21,7 @@ export default function Navigation() {
       <NavListItem>
         <StyledLink
           href="/favorites"
-          isActive={router.pathname === "/favorites"}
+          $isActive={router.pathname === "/favorites"}
         >
           Favorites
         </StyledLink>

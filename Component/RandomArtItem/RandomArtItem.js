@@ -8,9 +8,12 @@ export default function RandomArtItem({ artPiece, onToggle, isLiked }) {
   return (
     <Container>
       <ArtPiece>
-        <FavoriteLabel isLiked={isLiked}>
-          {isLiked && <p>Favorite Art Piece ♥</p>}{" "}
-        </FavoriteLabel>
+        {isLiked && (
+          <FavoriteLabel>
+            <p>Favorite Art Piece ♥</p>
+          </FavoriteLabel>
+        )}
+
         <Image
           src={artPiece.imageSource}
           alt={artPiece.name}
