@@ -21,6 +21,14 @@ const fetcher = async (url) => {
 export default function App({ Component, pageProps }) {
   const { data: artPieces, error, isLoading } = useSWR(URL, fetcher);
 
+  //global state to add comment
+  const [comments, setComments] = useState([]);
+
+  function handleAddComment(slug, text) {
+    const newComment = { slug, text, timestamp: new Date() };
+    setComments((prevComments) => [...prevComments, newComment]);
+  }
+
   // global isLike state to mark as favorite
   const [likedPieces, setLikedPieces] = useState([]);
 
@@ -28,7 +36,7 @@ export default function App({ Component, pageProps }) {
     // toggle through slug
     setLikedPieces((prevLikedPieces) =>
       prevLikedPieces.includes(slug) // is artPiece liked?
-        ? prevLikedPieces.filter((item) => item !== slug) //when yes -> filter() remove slug (noLike)
+        ? prevLikedPieces.filter((LikedPiece) => LikedPiece !== slug) //when yes -> filter() remove slug (noLike)
         : [...prevLikedPieces, slug]
     ); //when no -> add to add slug (Like)
   }
@@ -44,6 +52,8 @@ export default function App({ Component, pageProps }) {
           isLoading={isLoading}
           likedPieces={likedPieces}
           toggleLike={toggleLike}
+          handleAddComment={handleAddComment}
+          comments={comments}
         />
       </Layout>
     </>
