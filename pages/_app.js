@@ -1,4 +1,3 @@
-"use client";
 import useSWR from "swr";
 import GlobalStyle from "../styles";
 import Layout from "@/Component/Layout/Layout";
