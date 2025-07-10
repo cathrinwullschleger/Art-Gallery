@@ -29,6 +29,7 @@ export default function App({ Component, pageProps }) {
   // here, useState receives a function as the initial value —
   // react will call this function only once on the first render and use its return value as the initial state
   const [likedPieces, setLikedPieces] = useState(() => {
+    if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("likedPieces");
     // if data exists in localStorage, parse it as an array
     // otherwise, start with an empty array
@@ -45,6 +46,7 @@ export default function App({ Component, pageProps }) {
   //global state to add comment
   //initialize likedPieces state by reading from localStorage (only on first render)
   const [comments, setComments] = useState(() => {
+    if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("comments");
     return saved ? JSON.parse(saved) : [];
   });
