@@ -2,18 +2,11 @@ import { ArtPiece } from "@/styles.js";
 import { Container } from "@/styles.js";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import Image from "next/image";
-import { FavoriteLabel } from "@/styles.js";
 
 export default function RandomArtItem({ artPiece, onToggle, isLiked }) {
   return (
     <Container>
       <ArtPiece>
-        {isLiked && (
-          <FavoriteLabel>
-            <p>Favorite Art Piece ♥</p>
-          </FavoriteLabel>
-        )}
-
         <Image
           src={artPiece.imageSource}
           alt={artPiece.name}

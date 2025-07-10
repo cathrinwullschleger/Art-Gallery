@@ -1,16 +1,11 @@
 import Image from "next/image";
-import { ArtPiece, FavoriteLabel } from "@/styles.js";
+import { ArtPiece } from "@/styles.js";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 export default function ArtListItem({ artPiece, onToggle, isLiked }) {
   return (
     <ArtPiece>
-      {isLiked && (
-        <FavoriteLabel>
-          <p>Favorite Art Piece ♥</p>
-        </FavoriteLabel>
-      )}
       <Link href={`/art-pieces/${artPiece.slug}`}>
         <Image
           src={artPiece.imageSource}

@@ -33,10 +33,6 @@ export default function ArtPieceSlug({
     return <p>Art piece not found</p>;
   }
 
-  const handleBack = () => {
-    router.push("/art-pieces");
-  };
-
   return (
     <ArtPieceDetails
       piece={piece}
