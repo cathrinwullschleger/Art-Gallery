@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ArtPiece } from "@/styles.js";
 import { Container } from "@/styles.js";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import { FavoriteLabel } from "@/styles.js";
 import { StyledButton } from "@/styles.js";
 import CommentForm from "../CommentForm/CommentForm";
 import CommentsList from "../CommentsList/CommentsList";
@@ -26,11 +25,7 @@ export default function ArtPieceDetail({
     <Container>
       <ArtPiece>
         <h2>{name}</h2>
-        {isLiked && (
-          <FavoriteLabel>
-            <p>Favorite Art Piece ♥</p>
-          </FavoriteLabel>
-        )}
+
         <Image
           src={imageSource}
           alt={name}

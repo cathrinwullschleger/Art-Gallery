@@ -119,14 +119,6 @@ export const ArtPiecesList = styled.ul`
   padding: 1rem;
   margin: 0.5rem;
 `;
-export const FavoriteLabel = styled.div`
-  text-align: center;
-  padding: 1rem;
-
-  p {
-    font-size: 1.1rem;
-  }
-`;
 
 export const HeartButton = styled.button`
   margin-top: 1rem;

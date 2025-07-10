@@ -16,3 +16,5 @@ export default function CommentsList({ comments }) {
     </div>
   );
 }
+
+// add id to each comment? use key
