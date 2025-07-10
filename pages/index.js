@@ -34,7 +34,6 @@ export default function HomePage({
   if (!artPieces || artPieces.length === 0) {
     return <p>No art pieces found.</p>;
   }
-
   if (randomIndex === null) {
     return null;
   }
