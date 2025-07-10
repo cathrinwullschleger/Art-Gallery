@@ -11,7 +11,7 @@ export default function FavoritesPage({
   return (
     <div>
       <h1>Art Gallery</h1>
-
+      {favoriteArtPieces.length === 0 && <p>No favorites yet.</p>}
       <ArtList
         artPieces={favoriteArtPieces}
         toggleLike={toggleLike}
